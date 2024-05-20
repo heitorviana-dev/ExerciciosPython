@@ -49,14 +49,15 @@ class ShoppingList:
                 current_item = current_item.next_item
 
 
-shoppingList = ShoppingList()
-shoppingList.add_item("Sapato")
-shoppingList.add_item("Celular")
-shoppingList.show_items()
-shoppingList.delete_item("Aparelho")
-shoppingList.show_items()
-shoppingList.delete_item("Celular")
-shoppingList.show_items()
+if __name__ == "__main__":
+    shoppingList = ShoppingList()
+    shoppingList.add_item("Sapato")
+    shoppingList.add_item("Celular")
+    shoppingList.show_items()
+    shoppingList.delete_item("Aparelho")
+    shoppingList.show_items()
+    shoppingList.delete_item("Celular")
+    shoppingList.show_items()
 
 
 

@@ -11,27 +11,29 @@ class ShoppingList:
     def add_item(self, item_name):
         if not self.head:
             self.head = ShoppingListNode(item_name)
+            print(f"O item {item_name} foi adicionado com sucesso.")
         else:
             current_item = self.head
             while current_item.next_item:
                 current_item = current_item.next_item
             current_item.next_item = ShoppingListNode(item_name)
+            print(f"O item {item_name} foi adicionado com sucesso.")
 
-    def remove_item(self, item_name):
+    def delete_item(self, item_name):
         if not self.head:
             print("A lista está vazia.")
+            return
         elif self.head.item_name == item_name:
             self.head = self.head.next_item
-            print(f"O item {item_name} foi removido com sucesso da lista.")
+            print(f"O item {item_name} foi removido com sucesso.")
         else:
             current_item = self.head
             while current_item.next_item:
                 if current_item.next_item.item_name == item_name:
                     current_item.next_item = current_item.next_item.next_item
-                    return
-                current_item = current_item.next_item
-            print(f"O item {item_name} não existe na lista.")
-    def __repr__(self):
+            print(f"O item {item_name} não foi encontrado na lista.")
+
+    def __iter__(self):
         if not self.head:
             print("A lista está vazia.")
         else:
@@ -43,13 +45,14 @@ class ShoppingList:
 
 
 if __name__ == "__main__":
-    shoppingList = ShoppingList()
-    shoppingList.add_item("Sapato")
-    shoppingList.add_item("Celular")
-    shoppingList.__repr__()
-    shoppingList.remove_item("Sapato")
-    shoppingList.__repr__()
-    shoppingList.remove_item("Celular")
-    shoppingList.__repr__()
+    lista = ShoppingList()
+    lista.add_item("Sapato")
+    lista.add_item("Celular")
+    lista.__iter__()
+    lista.delete_item("Sapato")
+    lista.__iter__()
+    lista.delete_item("Celular")
+    lista.__iter__()
+
 
 
